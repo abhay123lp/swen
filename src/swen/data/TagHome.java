@@ -1,11 +1,12 @@
-package dm.data;
+package swen.data;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import dm.persistence.HibernateUtil;
+import swen.persistence.HibernateUtil;
+
 
 public class TagHome {
 

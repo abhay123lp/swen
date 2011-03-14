@@ -1,4 +1,4 @@
-package dm.persistence;
+package swen.persistence;
 
 import java.io.FileReader;
 import java.io.IOException;

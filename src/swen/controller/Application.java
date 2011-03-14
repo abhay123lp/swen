@@ -1,4 +1,4 @@
-package dm.controller;
+package swen.controller;
 
 import java.io.IOException;
 
@@ -6,7 +6,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import dm.persistence.HibernateUtil;
+import swen.persistence.HibernateUtil;
+
 
 /**
  * Application Lifecycle Listener implementation class Application

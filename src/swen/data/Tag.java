@@ -1,4 +1,4 @@
-package dm.data;
+package swen.data;
 
 public class Tag {
 

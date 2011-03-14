@@ -4,7 +4,7 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory name="db">
-        <mapping resource="dm/data/Article.hbm.xml" />
-        <mapping resource="dm/data/Tag.hbm.xml" />
+        <mapping resource="swen/data/Article.hbm.xml" />
+        <mapping resource="swen/data/Tag.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

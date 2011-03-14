@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated Mar 13, 2011 11:59:34 AM by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
-    <class name="dm.data.Article" table="Article">
+    <class name="swen.data.Article" table="Article">
         <id name="id" type="long">
             <column name="ID" />
             <generator class="identity" />
@@ -33,7 +33,7 @@
             <key>
                 <column name="article" />
             </key>
-            <many-to-many class="dm.data.Tag" column="tag" />
+            <many-to-many class="swen.data.Tag" column="tag" />
         </set>
     </class>
 </hibernate-mapping>
