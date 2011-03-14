@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 13, 2011 11:59:34 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="dm.data.Article" table="Article">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="url" type="java.lang.String">
+            <column name="URL" />
+        </property>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="publishDate" type="java.util.Date">
+            <column name="PUBLISH_DATE" />
+        </property>
+        <property name="viewCount" type="long">
+            <column name="VIEW_COUNT" />
+        </property>
+        <property name="rateTotal" type="long">
+            <column name="RATE_TOTAL" />
+        </property>
+        <property name="rateCount" type="long">
+            <column name="RATE_COUNT" />
+        </property>
+        <set name="tags" inverse="false" table="ArticleTag" lazy="true">
+            <key>
+                <column name="article" />
+            </key>
+            <many-to-many class="dm.data.Tag" column="tag" />
+        </set>
+    </class>
+</hibernate-mapping>
