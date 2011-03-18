@@ -6,5 +6,6 @@
     <session-factory name="db">
         <mapping resource="swen/data/Article.hbm.xml" />
         <mapping resource="swen/data/Tag.hbm.xml" />
+        <mapping resource="swen/data/Category.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

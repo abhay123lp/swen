@@ -34,6 +34,9 @@ public class Application implements ServletContextListener {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
+		
+		final String domain = "http://localhost:8080";
+		context.setAttribute("baseUrl", "http://localhost:8080/swen");
 	}
 
 	/**

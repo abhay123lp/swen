@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import swen.data.Article;
+import swen.data.ArticleHome;
+
 /**
  * Servlet implementation class Article
  */
@@ -24,7 +27,12 @@ public class ArticleServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// du lieu
-		request.getRequestDispatcher("article.jsp").forward(request, response);
+		ArticleHome articleHome = new ArticleHome();
+		request.getPathInfo();
+		Article article = articleHome.load(4);
+		request.setAttribute("article", article);
+		request.getRequestDispatcher("/article.jsp").forward(request, response);
+		
 	}
 
 }

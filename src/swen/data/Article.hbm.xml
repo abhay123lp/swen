@@ -29,6 +29,9 @@
         <property name="rateCount" type="long">
             <column name="RATE_COUNT" />
         </property>
+        <many-to-one name="category" class="swen.data.Category">
+            <column name="category"></column>
+        </many-to-one>
         <set name="tags" inverse="false" table="ArticleTag" lazy="true">
             <key>
                 <column name="article" />

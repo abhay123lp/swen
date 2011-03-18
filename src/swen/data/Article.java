@@ -15,6 +15,7 @@ public class Article {
 	private long rateCount;
 	private String url;
 	private Set<Tag> tags = new HashSet<Tag>();
+	private Category category;
 
 	public Article() {
 	}
@@ -89,6 +90,14 @@ public class Article {
 
 	public String getUrl() {
 		return url;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public Category getCategory() {
+		return category;
 	}
 
 }
