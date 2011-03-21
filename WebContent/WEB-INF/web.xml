@@ -32,4 +32,31 @@
     <servlet-name>CategoryServlet</servlet-name>
     <url-pattern>/cat/*</url-pattern>
   </servlet-mapping>
+  <filter>
+    <display-name>CommonFilter</display-name>
+    <filter-name>CommonFilter</filter-name>
+    <filter-class>swen.controller.CommonFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <servlet-name>Article</servlet-name>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <servlet-name>Home</servlet-name>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>CommonFilter</filter-name>
+    <servlet-name>CategoryServlet</servlet-name>
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeServlet</display-name>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>swen.controller.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/index.jsp</url-pattern>
+  </servlet-mapping>
 </web-app>

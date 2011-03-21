@@ -1,5 +1,7 @@
 package swen.data;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -10,6 +12,17 @@ import swen.persistence.HibernateUtil;
 
 public class ArticleHome {
 
+	public List<Article> listByCategory(long categoryId, int start, int max) {
+		Session session = HibernateUtil.getSession();
+		String hql = "from Article where category.id=:catId " +
+				"order by publishDate desc";
+		Query query = session.createQuery(hql);
+		query.setLong("catId", categoryId);
+		query.setFirstResult(start);
+		query.setMaxResults(max);
+		return query.list();
+	}
+	
 	public Article load(long id) {
 		Session session = HibernateUtil.getSession();
 		String hql = "from Article where id=:id";
@@ -32,6 +45,13 @@ public class ArticleHome {
 			}
 			throw ex;
 		}
+	}
+	
+	public long count() {
+		Session session = HibernateUtil.getSession();
+		String hql = "select count(*) from Article";
+		Query query = session.createQuery(hql);
+		return (Long) query.uniqueResult();
 	}
 	
 }

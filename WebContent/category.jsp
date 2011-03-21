@@ -5,11 +5,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Danh mục bài viết</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Danh mục bài viết</h1>
-<h2>${article.name}</h2>
-
+<h2>${category.name}</h2>
+<ul>
+	<c:forEach items="${articles}" var="article">
+	<li>
+	    <a href="${baseUrl}/art/${article.id}">${article.name}</a>
+	</li>
+	</c:forEach>
+</ul>
 </body>
 </html>
