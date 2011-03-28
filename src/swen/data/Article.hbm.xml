@@ -17,6 +17,9 @@
         <property name="content" type="java.lang.String">
             <column name="CONTENT" />
         </property>
+        <property name="length" type="int">
+            <column name="length" />
+        </property>
         <property name="publishDate" type="java.util.Date">
             <column name="PUBLISH_DATE" />
         </property>

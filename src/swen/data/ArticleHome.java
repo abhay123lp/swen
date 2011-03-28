@@ -53,5 +53,14 @@ public class ArticleHome {
 		Query query = session.createQuery(hql);
 		return (Long) query.uniqueResult();
 	}
+
+	public List<Article> list(int start, int max) {
+		Session session = HibernateUtil.getSession();
+		String hql = "from Article";
+		Query query = session.createQuery(hql);
+		query.setFirstResult(start);
+		query.setMaxResults(max);
+		return query.list();
+	}
 	
 }

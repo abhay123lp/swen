@@ -10,6 +10,7 @@ public class Article {
 	private String name;
 	private String content;
 	private Date publishDate;
+	private int length;
 	private long viewCount;
 	private long rateTotal;
 	private long rateCount;
@@ -98,6 +99,14 @@ public class Article {
 
 	public Category getCategory() {
 		return category;
+	}
+
+	public void setLength(int length) {
+		this.length = length;
+	}
+
+	public int getLength() {
+		return length;
 	}
 
 }
