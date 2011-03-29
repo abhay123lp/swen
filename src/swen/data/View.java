@@ -11,6 +11,13 @@ public class View {
 	public View() {
 	}
 
+	public View(User user, Article article, Date time) {
+		super();
+		this.user = user;
+		this.article = article;
+		this.time = time;
+	}
+
 	public User getUser() {
 		return user;
 	}

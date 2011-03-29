@@ -109,4 +109,9 @@ public class Article {
 		return length;
 	}
 
+	@Override
+	public String toString() {
+		return "#" + id + ": " + name;
+	}
+
 }

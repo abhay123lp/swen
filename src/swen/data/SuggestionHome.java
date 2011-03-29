@@ -1,12 +1,32 @@
 package swen.data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import swen.persistence.HibernateUtil;
 
 public class SuggestionHome {
+
+	public List<Suggestion> suggest(long userId, int count) {
+		Session session = HibernateUtil.getSession();
+		String hql = "select a, rand() from Article a order by rand()";
+		Query query = session.createQuery(hql);
+		query.setMaxResults(count);
+		final List<Object[]> articles = query.list();
+
+		User user = (User) session.load(User.class, userId);
+		List<Suggestion> suggestions = new ArrayList<Suggestion>();
+		for (Object[] data : articles) {
+			suggestions.add(new Suggestion(user, (Article) data[0],
+					SuggestionStatus.PENDING, ((Double) data[1]).floatValue()));
+		}
+		return suggestions;
+	}
 
 	public void save(Suggestion suggestion) {
 		Session session = HibernateUtil.getSession();
@@ -23,5 +43,5 @@ public class SuggestionHome {
 			throw ex;
 		}
 	}
-	
+
 }

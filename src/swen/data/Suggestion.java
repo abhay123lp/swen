@@ -2,12 +2,22 @@ package swen.data;
 
 public class Suggestion {
 
+	private long id;
 	private User user;
 	private Article article;
 	private SuggestionStatus status;
 	private float probability;
 
 	public Suggestion() {
+	}
+
+	public Suggestion(User user, Article article, SuggestionStatus status,
+			float probability) {
+		super();
+		this.user = user;
+		this.article = article;
+		this.status = status;
+		this.probability = probability;
 	}
 
 	public User getUser() {
@@ -42,4 +52,17 @@ public class Suggestion {
 		this.probability = probability;
 	}
 
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return article.toString();
+	}
+	
 }

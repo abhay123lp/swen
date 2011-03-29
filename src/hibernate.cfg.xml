@@ -7,5 +7,8 @@
         <mapping resource="swen/data/Article.hbm.xml" />
         <mapping resource="swen/data/Tag.hbm.xml" />
         <mapping resource="swen/data/Category.hbm.xml" />
+        <mapping resource="swen/data/User.hbm.xml" />
+        <mapping resource="swen/data/Suggestion.hbm.xml" />
+        <mapping resource="swen/data/View.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

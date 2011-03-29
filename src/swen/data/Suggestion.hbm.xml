@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 30, 2011 12:01:22 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="swen.data.Suggestion" table="Suggestion">
+        <id name="id" type="long">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="user" class="swen.data.User" fetch="join">
+            <column name="USER" />
+        </many-to-one>
+        <many-to-one name="article" class="swen.data.Article" fetch="join">
+            <column name="ARTICLE" />
+        </many-to-one>
+        <property name="status">
+            <column name="STATUS" />
+            <type name="org.hibernate.type.EnumType">
+                <param name="type">12</param>
+                <param name="enumClass">swen.data.SuggestionStatus</param>
+            </type>
+        </property>
+        <property name="probability" type="float">
+            <column name="PROBABILITY" />
+        </property>
+    </class>
+</hibernate-mapping>
