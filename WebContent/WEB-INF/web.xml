@@ -59,4 +59,34 @@
     <servlet-name>Home</servlet-name>
     <url-pattern>/index.jsp</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SuggestionServlet</display-name>
+    <servlet-name>SuggestionServlet</servlet-name>
+    <servlet-class>swen.controller.SuggestionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuggestionServlet</servlet-name>
+    <url-pattern>/suggest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SignInServlet</display-name>
+    <servlet-name>SignInServlet</servlet-name>
+    <servlet-class>swen.controller.SignInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SignInServlet</servlet-name>
+    <url-pattern>/SignInServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SuggestionResultServlet</display-name>
+    <servlet-name>SuggestionResultServlet</servlet-name>
+    <servlet-class>swen.controller.SuggestionResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SuggestionResultServlet</servlet-name>
+    <url-pattern>/SuggestionResultServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

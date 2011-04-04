@@ -28,11 +28,11 @@ public class ArticleServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// du lieu
 		ArticleHome articleHome = new ArticleHome();
-		request.getPathInfo();
-		Article article = articleHome.load(4);
+		String info=request.getPathInfo().substring(1);
+		int id=Integer.parseInt(info);		
+		Article article = articleHome.load(id);
 		request.setAttribute("article", article);
 		request.getRequestDispatcher("/article.jsp").forward(request, response);
-		
 	}
 
 }

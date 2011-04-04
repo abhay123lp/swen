@@ -1,6 +1,7 @@
 package swen.controller;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,7 +21,6 @@ public class CategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private CategoryHome categoryHome;
 	private ArticleHome articleHome;
-
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -36,6 +36,7 @@ public class CategoryServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		
 		long id = Long.parseLong(request.getPathInfo().substring(1));
 		Category category = categoryHome.load(id);
 		request.setAttribute("category", category);
