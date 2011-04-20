@@ -22,8 +22,10 @@ public class SuggestionHome {
 		User user = (User) session.load(User.class, userId);
 		List<Suggestion> suggestions = new ArrayList<Suggestion>();
 		for (Object[] data : articles) {
-			suggestions.add(new Suggestion(user, (Article) data[0],
-					SuggestionStatus.PENDING, ((Double) data[1]).floatValue()));
+			Suggestion suggestion = new Suggestion(user, (Article) data[0],
+					SuggestionStatus.PENDING, ((Double) data[1]).floatValue());
+			save(suggestion);
+			suggestions.add(suggestion);
 		}
 		return suggestions;
 	}
@@ -42,6 +44,14 @@ public class SuggestionHome {
 			}
 			throw ex;
 		}
+	}
+	
+	public Suggestion load(long id) {
+		Session session = HibernateUtil.getSession();
+		String hql = "from Suggestion where id=:id";
+		Query query = session.createQuery(hql);
+		query.setLong("id", id);
+		return (Suggestion) query.uniqueResult();
 	}
 
 }

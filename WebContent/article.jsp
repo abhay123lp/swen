@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="common.jsp" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -94,7 +95,7 @@ body  {
   </div>
   <div id="sidebar1" style="background-color:#69C">
     <table width="100%" border="1" cellspacing="3">
-      <tr>
+        <tr>
       <td><a href="http://localhost:8080/swen"><font color="#000000">Trang chủ</font></a></td>
       </tr>
       <tr>
@@ -152,12 +153,19 @@ body  {
   <h3>&nbsp;</h3>
   <!-- end #sidebar1 --></div>
   <div id="sidebar2" style="background-color:#69C">
-    <h3><a href="http://localhost:8080/swen/suggest"><font color="#000000">Đề cử tin mới</font></a></h3>
-    <p>&nbsp;</p>
+  <c:if test="${true!=signIn}">
+	  <h3><a href="${baseUrl}/signin"><font color="#000000">Sign in</font></a></h3>
+	  <h3><a href="${baseUrl}/SignUp"><font color="#000000">Sign up</font></a></h3>
+	    <p>&nbsp;</p>
+  </c:if>
+  <c:if test="${true==signIn}">
+  	<h3><a href="${baseUrl}/suggest"><font color="#000000">Đề xuất tin mới</font></a></h3>
+	<h3><a href="${baseUrl}/SignOut"><font color="#000000">Sign out</font></a></h3>
+	    <p>&nbsp;</p>
+  </c:if> 
   <!-- end #sidebar2 --></div>
   <div id="mainContent" style="background-color:#C1DBDD">
-<p>${article.content}</p>
- 
+    <p>${article.content}</p>
   <!-- end #mainContent --></div>
 	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />
   <div id="footer" style="background-color:#69C">

@@ -31,9 +31,9 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		ArticleHome articleHome=new ArticleHome();
-		List<Article> articles=articleHome.listByCategory(1, 0, 10);
+		List<Article> articles=articleHome.listHome(10);
 	    request.setAttribute("articles", articles);
-		request.getRequestDispatcher("/home.jsp").forward(request, response);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
 }

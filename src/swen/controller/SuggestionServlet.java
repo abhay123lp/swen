@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import swen.data.Article;
 import swen.data.ArticleHome;
+import swen.data.Suggestion;
+import swen.data.SuggestionHome;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,14 +34,15 @@ public class SuggestionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		if (request.getParameter("signIn")=="true"){
-			List<Article> articles = articleHome.listByCategory(1, 0, 10);
-			request.setAttribute("articles",articles);
-			request.getRequestDispatcher("suggest.jsp").forward(request, response);
+		SuggestionHome suggestionHome=new SuggestionHome();
+		long userId=(Long)request.getSession().getAttribute("userId");
+		List<Suggestion> suggests = suggestionHome.suggest(userId, 10);
+		request.getSession().setAttribute("suggests", suggests);
+		List<Article> articles=new LinkedList<Article>();
+		for(int i=0;i<suggests.size();i++){
+			articles.add(suggests.get(i).getArticle());
 		}
-		else{
-			request.getRequestDispatcher("signIn.jsp").forward(request, response);
-		}
-
+		request.setAttribute("suggestArticles",articles);
+		request.getRequestDispatcher("suggest.jsp").forward(request, response);
 	}
 }

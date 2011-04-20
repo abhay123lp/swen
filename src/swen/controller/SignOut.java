@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SuggestionResultServlet
+ * Servlet implementation class SignOut
  */
-public class SuggestionResultServlet extends HttpServlet {
+public class SignOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SuggestionResultServlet() {
+    public SignOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -25,14 +25,8 @@ public class SuggestionResultServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.getSession().setAttribute("signIn", false);
+		request.getRequestDispatcher("signOut.jsp").forward(request, response);
 	}
 
 }

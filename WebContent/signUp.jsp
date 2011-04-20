@@ -93,7 +93,7 @@ body  {
   </div>
   <div id="sidebar1" style="background-color:#69C">
     <table width="100%" border="1" cellspacing="3">
-      <tr>
+       <tr>
       <td><a href="http://localhost:8080/swen"><font color="#000000">Trang chủ</font></a></td>
       </tr>
       <tr>
@@ -150,33 +150,28 @@ body  {
     </table>
   <h3>&nbsp;</h3>
   <!-- end #sidebar1 --></div>
-  <div id="sidebar2" style="background-color:#69C">
-    <h3><a href="http://localhost:8080/swen/suggest"><font color="#000000">Đề cử tin mới</font></a></h3>
-    <p>&nbsp;</p>
-  <!-- end #sidebar2 --></div>
   <div id="mainContent" style="background-color:#C1DBDD">
-    <form id="suggest" name="suggest" method="get" action="SuggestionResult">
-      <c:forEach items="${suggestArticles}" var="article">
-	      <table width="100%" border="1">
-	        <tr>
-	          <td width="81%" height="24">  	<h3><a href="${baseUrl}/art/${article.id}">${article.name}</a></h3></td>
-	          <td width="19%"><label>
-	            <label><font size="-2">Vote</font>
-	              <input type="checkbox" name="checkbox[]" value="${article.id}" />
-	          </label></td>
-	        </tr>
-	      </table>
-	  </c:forEach>
-      <p align="center">
-        <input type="submit" name="Submit" id="Submit" value="Submit" />
-      </p>
+    <h2>Đăng ký tài khoản mới    </h2>
+    <form method="get" action="VerifyNewUser">
+    	<table width="100%" border="1">
+    	  <tr>
+    	    <td><div align="right">Tên tài khoản:</div></td>
+    	    <td><input type="text" name="username" /></td>
+  	    </tr>
+    	  <tr>
+    	    <td><div align="right">Mật khẩu     :</div></td>
+    	    <td><input type="password" name="password"/></td>
+  	    </tr>
+  	  </table>
+    	<p>
+    	  <input type="submit" value="Sign in" />
+  	  </p>
     </form>
+      <c:if test="${signUpFail==true}">
+	  <h5><font color="#FF0000">Tên truy hoặc mật khẩu không đúng </font></h5>
+  </c:if>
     <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <!-- end #mainContent --></div>
+<!-- end #mainContent --></div>
 	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />
   <div id="footer" style="background-color:#69C">
     <p align="center"><font size="-1">Dev team: Lê Ngọc Minh, Đỗ Bích Ngọc, Phạm Vũ Long</font></p>

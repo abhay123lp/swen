@@ -152,7 +152,7 @@ body  {
   <!-- end #sidebar1 --></div>
   <div id="mainContent" style="background-color:#C1DBDD">
     <h2>Đăng nhập    </h2>
-    <form method="get" action="SignInServlet">
+    <form method="get" action="VerifyUser">
     	<table width="100%" border="1">
     	  <tr>
     	    <td><div align="right">Tên tài khoản:</div></td>
@@ -167,6 +167,9 @@ body  {
     	  <input type="submit" value="Sign in" />
   	  </p>
     </form>
+      <c:if test="${signInFail==true}">
+	  <h5><font color="#FF0000">Tên truy cập hoặc mật khẩu không đúng </font></h5>
+  </c:if>
     <p>&nbsp;</p>
 <!-- end #mainContent --></div>
 	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats --><br class="clearfloat" />

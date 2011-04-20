@@ -63,4 +63,13 @@ public class ArticleHome {
 		return query.list();
 	}
 	
+	public List<Article> listHome(int count) {
+		Session session = HibernateUtil.getSession();
+		String hql = "from Article order by rand()";
+		Query query = session.createQuery(hql);
+		query.setFirstResult(0);
+		query.setMaxResults(count);
+		return query.list();
+	}
+	
 }
